@@ -1,34 +1,29 @@
-import java.awt.*;
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println(walk(21, -19));
-        System.out.println(walk(15, 1));
-        System.out.println(walk(46, -9));
-        System.out.println(walk(57, -11));
-        System.out.println(walk(1, 1));
-        System.out.println(" ");
+        Boss villain = new Boss();
+        villain.setDemege(50);
+        villain.setHealth(700);
+        villain.setDefense("Magic shield");
 
-        System.out.println(walk(generateRandomAge(), 23));
-    }
+        System.out.println("Boss : " );
+        System.out.println(" Health: " + villain.getHealth() + " Damage: " + " Protection: " + villain.getDefense());
 
-    public static String walk(int age, int temperature) {
 
-        if ((age > 20 && age < 45) && (temperature > -20 && temperature < 30)) {
-            return "Можно идти гулять";
-        } else if (age < 20 && (temperature > 0 && temperature < 28)) {
-            return "Можно идти гулять";
-        } else if (age > 45 && (temperature > -10 && temperature < 25)) {
-            return "Можно идти гулять";
-        } else {
-            return "Оставайтесь дома";
+        Hero[] heroes = createHeroes();
+        System.out.print("Information about heroes: ");
+        for (Hero hero: heroes) {
+            System.out.println("Health; " + hero.getHealth());
+            System.out.println("Damage: " + hero.getDamege());
+            System.out.println("Super power: " + hero.getSuperPaver());
         }
     }
 
-    public static int generateRandomAge() {
-        Random random = new Random();
-        return random.nextInt(1,100);
 
+    public static Hero[] createHeroes (){
+        Hero hero1 = new Hero(200,15,"Healing");
+        Hero hero2 = new Hero(250,20);
+        Hero hero3 = new Hero(300,25);
+        Hero[] heroes = {hero1, hero2, hero3};
+        return heroes;
     }
 }
